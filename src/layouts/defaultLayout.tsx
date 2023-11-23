@@ -3,15 +3,16 @@ import { CiUser } from "react-icons/ci";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../config/router";
-import { useProductsStore } from "../stores/productsStore";
+
+import { useCartStore } from "../stores/cartStore";
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 const DefaultLayout: React.FC<LayoutProps> = ({ children }) => {
-  const { cartItems } = useProductsStore((state) => ({
-    cartItems: state.cartProducts,
+  const { cartItems } = useCartStore((state) => ({
+    cartItems: state.cartItems,
   }));
 
   const footerLinks = [

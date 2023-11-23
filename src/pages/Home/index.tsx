@@ -89,7 +89,7 @@ const Home = () => {
                   <Spinner size={"xl"} color="#56B280" />
                 </div>
               )}
-              {products.length !== 0 ? (
+              {products.length !== 0 && !isLoading ? (
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-[30px]">
                   {products.map((p) => (
                     <Link to={`/product/${p.id}`} key={p.id}>

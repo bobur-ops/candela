@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import DefaultLayout from "../../layouts/defaultLayout";
 import { ROUTES } from "../../config/router";
 import { Product } from "../../myTypes/types";
-import { useProductsStore } from "../../stores/productsStore";
 import { Button, Image } from "@chakra-ui/react";
 import { useCallback } from "react";
+import { useCartStore } from "../../stores/cartStore";
 
 const CartItem = ({
   product,
@@ -40,8 +40,8 @@ const CartItem = ({
 };
 
 const Cart = () => {
-  const { cartItems, removeCartItem } = useProductsStore((state) => ({
-    cartItems: state.cartProducts,
+  const { cartItems, removeCartItem } = useCartStore((state) => ({
+    cartItems: state.cartItems,
     removeCartItem: state.removeCartProduct,
   }));
 

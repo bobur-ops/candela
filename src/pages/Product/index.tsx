@@ -4,24 +4,23 @@ import { Product as ProductInerface } from "../../myTypes/types";
 import { useProductsStore } from "../../stores/productsStore";
 import { useParams } from "react-router-dom";
 import { Button, Image, Spinner } from "@chakra-ui/react";
+import { useCartStore } from "../../stores/cartStore";
 
 const Product = () => {
   const [currentProduct, setCurrentProduct] = useState<null | ProductInerface>(
     null
   );
-  const {
-    isLoading,
-    getProduct,
-    setProductToCart,
-    cartProducts,
-    removeCartProduct,
-  } = useProductsStore((state) => ({
+  const { isLoading, getProduct } = useProductsStore((state) => ({
     isLoading: state.isLoading,
     getProduct: state.getProductById,
-    setProductToCart: state.setCartProduct,
-    cartProducts: state.cartProducts,
-    removeCartProduct: state.removeCartProduct,
   }));
+  const { cartProducts, setProductToCart, removeCartProduct } = useCartStore(
+    (state) => ({
+      cartProducts: state.cartItems,
+      setProductToCart: state.setCartProduct,
+      removeCartProduct: state.removeCartProduct,
+    })
+  );
   const routerParams = useParams();
 
   useEffect(() => {
