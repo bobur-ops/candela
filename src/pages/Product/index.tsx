@@ -68,10 +68,10 @@ const Product = () => {
     <>
       <DefaultLayout>
         <MainContent>
-          <div className="py-10">
-            <div className="flex justify-center items-center gap-10">
+          <div className="py-10 px-5">
+            <div className="flex flex-col lg:flex-row justify-center items-center gap-10">
               <div className="max-w-[540px]">
-                <div className="w-[540px] h-[433px] flex items-center justify-center bg-gray-100 rounded-xl mb-5">
+                <div className="md:w-[540px] md:h-[433px] flex items-center justify-center bg-gray-100 rounded-xl mb-5">
                   <Image src={`/products/${currentProduct?.img}.png`} />
                 </div>
                 <div className="flex flex-col gap-2 text-center text-[22px] font-medium">
